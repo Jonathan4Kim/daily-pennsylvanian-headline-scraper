@@ -6,12 +6,12 @@ JSON file that tracks headlines over time.
 import os
 import sys
 
-import daily_event_monitor
-
 import bs4
 import requests
 import loguru
 
+# Import the daily_event_monitor module
+import daily_event_monitor
 
 def scrape_data_point():
     """
@@ -30,7 +30,7 @@ def scrape_data_point():
         data_point = "" if target_element is None else target_element.text
         loguru.logger.info(f"Data point: {data_point}")
         return data_point
-
+    return ""
 
 if __name__ == "__main__":
 
