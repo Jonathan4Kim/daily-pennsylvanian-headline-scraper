@@ -1,4 +1,4 @@
-# Basic Git Scraper Template
+# Basic Git Scraper Template (Find HW 2 Part IV Description at the End)
 
 This template provides a starting point for **git scraping**—the technique of scraping data from websites and automatically committing it to a Git repository using workflows, [coined by Simon Willison](https://simonwillison.net/2020/Oct/9/git-scraping/).
 
@@ -19,6 +19,8 @@ The workflow defined in `.github/workflows/scrape.yaml` runs on a defined schedu
 3. Install dependencies via Pipenv
 4. Run the python script `script.py` to scrape data
 5. Commit any updated data files to the Git repository
+
+6. 
 
 ## Scheduling
 
@@ -135,3 +137,17 @@ But it is important to use it responsibly and ethically. Here are some guideline
 9. Document your scraping process thoroughly for replicability, transparency and accountability.
 
 10. Continuously re-evaluate your scraping program against applicable laws and ethical principles.
+
+
+# Daily Pennsylvanian Headline Scraper
+
+This project is designed to scrape the main headline from the Daily Pennsylvanian home page and store it in a JSON file. The JSON file maintains a historical record of the headlines, including timestamps, to track how the headlines change over time. This is useful for various types of analysis, such as Natural Language Processing (NLP) and trends analysis.
+
+To address the missing `daily_event_monitor` module referenced in the original code, we created a new module that fulfills the intended functionality. This module includes a class `DailyEventMonitor` that handles loading existing data from the JSON file if it exists, adding new headlines to the data with the current date and time, and writing the updated data back to the JSON file. This ensures that the data is structured and stored correctly.
+
+The main script (`script.py`) was updated to use the new `daily_event_monitor` module. The core functionality remains the same: scraping the headline, logging activities, and saving the headline to the JSON file. Importing the new module allows the script to manage and persist the headline data effectively. The `scrape_data_point` function scrapes the main headline from the Daily Pennsylvanian home page using `requests` and `BeautifulSoup`.
+
+By creating a new custom module, we ensure that the script can manage and persist the headline data effectively. The new `DailyEventMonitor` class simplifies loading, adding, and saving data, ensuring that the data is structured and stored correctly. Separating the scraping logic and the data management logic into different modules makes the code more modular and easier to maintain. Maintaining logging ensures that we can trace the scraping process, catch any errors, and debug issues effectively. Storing headlines with timestamps in a JSON file allows for historical analysis and trend tracking, which could be useful for future projects involving data analysis or NLP.
+
+By following these steps, the scraper now not only scrapes the main headline from the Daily Pennsylvanian website but also maintains a comprehensive and timestamped record of the headlines over time. This modular approach and effective data management make the scraper a robust tool for tracking and analyzing headlines.
+
